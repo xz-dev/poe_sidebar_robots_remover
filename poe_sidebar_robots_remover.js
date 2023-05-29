@@ -7,7 +7,8 @@
 // @match        https://poe.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=poe.com
 // @grant        none
-// @updateURL    
+// @downloadURL  https://raw.githubusercontent.com/xz-dev/poe_sidebar_robots_remover/main/poe_sidebar_robots_remover.js
+// @homepage     https://github.com/xz-dev/poe_sidebar_robots_remover
 // ==/UserScript==
 
 (function() {
