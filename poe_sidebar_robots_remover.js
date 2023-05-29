@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  Remove robots from the sidebar of poe.com, only show allowed robots
-// @author       You and GPT-4
+// @author       XZ and GPT-4
 // @match        https://poe.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=poe.com
 // @grant        none
