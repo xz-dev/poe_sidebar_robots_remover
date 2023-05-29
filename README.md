@@ -4,7 +4,7 @@
 ## How to use
 
 - Install [Tampermonkey](https://tampermonkey.net/)
-- Select the script in this repo. View the file and click the _Raw_ button at the top of the file to view its source
+- Select [the script](https://github.com/xz-dev/poe_sidebar_robots_remover/blob/main/poe_sidebar_robots_remover.js) in this repo. View the file and click the [_Raw_](https://github.com/xz-dev/poe_sidebar_robots_remover/raw/main/poe_sidebar_robots_remover.js) button at the top of the file to view its source
 - Copy the source
 - Open Tampermonkey in your browser and click the Add Script tab (icon with a plus symbol)
 - Paste the source into the script window and hit save
