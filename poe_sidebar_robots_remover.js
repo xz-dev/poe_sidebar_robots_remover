@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Poe.com Remove Robots from Sidebar
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.1.1
 // @description  Remove robots from the sidebar of poe.com, only show allowed robots
 // @author       XZ and GPT-4
 // @match        https://poe.com/*
