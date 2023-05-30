@@ -19,4 +19,7 @@
 ## End
 All code from poe's gpt4 self, I just review all code and check it running.  
 Thanks all dev for AI and about AI :)  
+
+# More Toy
+[poe-shell](https://github.com/xz-dev/poe-shell): Clean and easy-use wrapper for shell base on ading2210/poe-api 
 More intresting project check in my [homepage😄](https://github.com/xz-dev)
