@@ -10,7 +10,7 @@
 ### 
 |Before|After|
 |---|---|
-|<img src="https://github.com/xz-dev/poe_sidebar_robots_remover/assets/32761048/275ed772-602b-4889-884e-8ae6f39a2f91" height="500dp">|<img src="https://github.com/xz-dev/poe_sidebar_robots_remover/assets/32761048/873fc8dd-71d6-49a3-90de-8b4091648a14" height="500dp">|
+|<img src="https://github.com/xz-dev/poe_sidebar_robots_remover/assets/32761048/275ed772-602b-4889-884e-8ae6f39a2f91" height="500dp">|<img src="https://github.com/xz-dev/poe_sidebar_robots_remover/assets/32761048/7afef965-638b-4ad0-9083-508048cefffb" height="500dp">|
 
 - Setting menu
 
