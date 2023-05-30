@@ -89,6 +89,10 @@
 `;
 
         const settingsPanelToggleButton = document.createElement('button');
+        settingsPanelToggleButton.style.cssText = `background: none!important;
+  border: none;
+  padding: 0!important;
+  `;
         settingsPanelToggleButton.textContent = 'List\nSetting';
         settingsPanelToggleButton.id = 'settings-toggle-button'; // for observer to avoid loop add
 
@@ -101,7 +105,7 @@
 
         if (targetHeader) {
 
-            targetHeader.appendChild(settingsPanelToggleButton);
+            targetHeader.insertBefore(settingsPanelToggleButton, targetHeader.firstChild);
         }
 
         settingsPanelToggleButton.onclick = () => {
