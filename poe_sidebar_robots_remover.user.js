@@ -76,7 +76,7 @@
             position: fixed;
             top: 20px;
             left: 20px;
-            background-color: white;
+            background-color: black;
             border: 1px solid black;
             padding: 15px;
             z-index: 1000;
