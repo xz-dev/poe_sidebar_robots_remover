@@ -77,27 +77,32 @@
     const createSettingsPanel = () => {
         const settingsPanel = document.createElement('div');
         settingsPanel.style.cssText = `
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: black;
-            border: 1px solid black;
-            padding: 15px;
-            z-index: 1000;
-            display: none;
-        `;
-
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    border: 1px solid black;
+    padding: 15px;
+    z-index: 1000;
+    display: none;
+`;
 
         const settingsPanelToggleButton = document.createElement('button');
         settingsPanelToggleButton.textContent = 'List\nSetting';
-        settingsPanelToggleButton.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        z-index: 1001;
-        white-space: pre; // 保持换行符生效
-        `;
+        settingsPanelToggleButton.id = 'settings-toggle-button'; // for observer to avoid loop add
 
+
+        const section = Array.from(document.querySelectorAll('section'));
+        const targetHeader = section.find(
+            header =>
+            hasPartialClass(header, 'ChatPageSidebar_menuFooter__')
+        );
+
+        if (targetHeader) {
+
+            targetHeader.appendChild(settingsPanelToggleButton);
+        }
 
         settingsPanelToggleButton.onclick = () => {
             settingsPanel.style.display = settingsPanel.style.display === 'none' ? 'block' : 'none';
@@ -166,9 +171,24 @@
         settingsPanel.appendChild(blacklistedRobotsSettings);
         settingsPanel.appendChild(saveButton);
         document.body.appendChild(settingsPanel);
-        document.body.appendChild(settingsPanelToggleButton);
     };
 
-    createSettingsPanel();
+    const observerHeader = new MutationObserver((mutationsList, observerHeader) => {
+        for (const mutation of mutationsList) {
+            if (mutation.type === 'childList') {
+                const section = Array.from(document.querySelectorAll('section'));
+                const targetHeader = section.find(
+                    header =>
+                    hasPartialClass(header, 'ChatPageSidebar_menuFooter__')
+                );
+                const toggleButton = targetHeader.querySelector('#settings-toggle-button');
 
+                if (targetHeader && !toggleButton) {
+                    createSettingsPanel(targetHeader);
+                }
+            }
+        }
+    });
+
+    observerHeader.observe(document.body, { childList: true, subtree: true });
 })();
