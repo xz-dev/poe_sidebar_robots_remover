@@ -34,31 +34,35 @@
     };
 
     const removeUnwantedSidebarItems = () => {
-    const menu = Array.from(document.querySelectorAll('menu')).find((element) =>
-        hasPartialClass(element, 'ChatPageSidebar_sidebar__')
-    );
+        const menu = Array.from(document.querySelectorAll('menu')).find((element) =>
+                                                                        hasPartialClass(element, 'ChatPageSidebar_sidebar__')
+                                                                       );
 
-    if (menu) {
-        const sidebarSections = Array.from(menu.querySelectorAll('section')).filter((element) =>
-            hasPartialClass(element, 'PageWithSidebarNavGroup_section__')
-        );
+        const currentBotNameElement = Array.from(document.querySelectorAll('div')).find((element) => hasPartialClass(element, 'BotHeader_boldTitle__'));
 
-        sidebarSections.forEach((sidebarSection) => {
-            const robotNavItems = Array.from(sidebarSection.querySelectorAll('a'));
+        const currentBotName = currentBotNameElement.querySelector('p').textContent;
+        if (menu) {
+            const sidebarSections = Array.from(menu.querySelectorAll('section')).filter((element) =>
+                                                                                        hasPartialClass(element, 'PageWithSidebarNavGroup_section__')
+                                                                                       );
 
-            robotNavItems.forEach((navItem) => {
-                if (hasPartialClass(navItem, 'PageWithSidebarNavItem_navItem__')) {
-                    const robotNameElem = navItem.querySelector('div > div > p:not([class])');
-                    if (robotNameElem) {
-                        const robotName = robotNameElem.textContent.trim();
-                        if (!matchesKeywords(robotName) || isBlacklisted(robotName)) {
-                            navItem.remove();
+            sidebarSections.forEach((sidebarSection) => {
+                const robotNavItems = Array.from(sidebarSection.querySelectorAll('a'));
+
+                robotNavItems.forEach((navItem) => {
+                    if (hasPartialClass(navItem, 'PageWithSidebarNavItem_navItem__')) {
+                        const robotNameElem = navItem.querySelector('div > div > p:not([class])');
+                        if (robotNameElem) {
+                            const robotName = robotNameElem.textContent.trim();
+                            navItem.style.display = ''; // 显示所有机器人
+                            if (robotName != currentBotName && (!matchesKeywords(robotName) || isBlacklisted(robotName))) {
+                                navItem.style.display = 'none'; // 隐藏不符合条件的机器人
+                            }
                         }
                     }
-                }
+                });
             });
-        });
-    }
+        }
     };
 
     const observer = new MutationObserver(removeUnwantedSidebarItems);
@@ -163,7 +167,7 @@
         settingsPanel.appendChild(saveButton);
         document.body.appendChild(settingsPanel);
         document.body.appendChild(settingsPanelToggleButton);
-        };
+    };
 
     createSettingsPanel();
 
